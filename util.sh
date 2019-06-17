@@ -418,6 +418,9 @@ function compile() {
   # Build WebRTC with RTII enbled.
   [ $ENABLE_RTTI = 1 ] && common_args+=" use_rtti=true"
 
+  # add h264 support, enable proprietary codecs
+  common_args+=' rtc_use_h264=true ffmpeg_branding="Chrome" proprietary_codecs=true'
+  
   # Static vs Dynamic CRT: When `is_component_build` is false static CTR will be
   # enforced.By default Debug builds are dynamic and Release builds are static.
   [ $ENABLE_STATIC_LIBS = 1 ] && common_args+=" is_component_build=false"
